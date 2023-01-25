@@ -26,7 +26,7 @@ public class PercolationImpl implements Percolation {
     }
 
     @Override
-    public void openCell(long x, long y) {
+    public void openCell(int x, int y) {
         //TODO реализовать метод
     }
 
@@ -37,7 +37,7 @@ public class PercolationImpl implements Percolation {
     }
 
     @Override
-    public CellState getCellState(long x, long y) {
+    public CellState getCellState(int x, int y) {
         //TODO реализовать метод
         return null;
     }

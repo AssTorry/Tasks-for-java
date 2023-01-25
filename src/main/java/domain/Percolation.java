@@ -4,7 +4,7 @@ import domain.data.CellState;
 
 /**
  * Интерфейс решетки
- *
+ * <p>
  * Начало координат в левом верхнем углу, OY направленна вниз OX - вправо
  * Левая верхняя ячейка (0;0)
  */
@@ -25,7 +25,7 @@ public interface Percolation {
      * @param x х координата ячейки
      * @param y у координата ячейки
      */
-    public void openCell(long x, long y);
+    public void openCell(int x, int y);
 
     /**
      * Количество открытых ячеек
@@ -38,7 +38,7 @@ public interface Percolation {
      * @param x х координата ячейки
      * @param y у координата ячейки
      */
-    public CellState getCellState(long x, long y);
+    public CellState getCellState(int x, int y);
 
     /**
      * Закрыть все ячейки
