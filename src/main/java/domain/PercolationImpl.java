@@ -36,7 +36,7 @@ public class PercolationImpl implements Percolation {
 
     @Override
     public void openCell(int x, int y) {
-        if (array[x][y] == FULL) return;
+        if (array[x][y] != LOCK) return;
 
         openCells = openCells + 1;
         array[x][y] = OPEN;
