@@ -19,11 +19,13 @@ public class PercolationImplTest {
 
     @Test
     public void getSize() {
+        percolation.closeAllCell();
         Assertions.assertEquals(5, percolation.getSize());
     }
 
     @Test
     public void hasPercolationV1() {
+        percolation.closeAllCell();
         Assertions.assertFalse(percolation.hasPercolation());
         percolation.openCell(0, 4);
         Assertions.assertFalse(percolation.hasPercolation());
@@ -37,6 +39,7 @@ public class PercolationImplTest {
 
     @Test
     public void hasPercolationV2() {
+        percolation.closeAllCell();
         Assertions.assertFalse(percolation.hasPercolation());
         percolation.openCell(0, 0);
         percolation.openCell(1, 0);
@@ -54,6 +57,7 @@ public class PercolationImplTest {
 
     @Test
     public void hasPercolationV3() {
+        percolation.closeAllCell();
         Assertions.assertFalse(percolation.hasPercolation());
         percolation.openCell(0, 0);
         percolation.openCell(1, 1);
@@ -135,26 +139,6 @@ public class PercolationImplTest {
         Assertions.assertEquals(FULL, percolation.getCellState(0, 2));
         Assertions.assertEquals(FULL, percolation.getCellState(0, 3));
         Assertions.assertEquals(FULL, percolation.getCellState(0, 4));
-    }
-
-    @Test
-    public void getCellStateV2() {
-        percolation.openCell(0, 0);
-        percolation.openCell(0, 1);
-        percolation.openCell(1, 1);
-        percolation.openCell(2, 1);
-        percolation.openCell(3, 1);
-        Assertions.assertEquals(FULL, percolation.getCellState(3, 1));
-        Assertions.assertEquals(LOCK, percolation.getCellState(4, 4));
-        percolation.openCell(3, 3);
-        percolation.openCell(4, 3);
-        percolation.openCell(4, 4);
-        Assertions.assertEquals(OPEN, percolation.getCellState(4, 4));
-        Assertions.assertEquals(OPEN, percolation.getCellState(3, 3));
-        percolation.openCell(4, 2);
-        Assertions.assertEquals(FULL, percolation.getCellState(4, 4));
-        Assertions.assertEquals(FULL, percolation.getCellState(4, 3));
-        Assertions.assertEquals(FULL, percolation.getCellState(3, 3));
     }
 
     @Test

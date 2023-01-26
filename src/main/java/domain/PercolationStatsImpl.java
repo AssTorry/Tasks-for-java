@@ -1,6 +1,5 @@
 package domain;
 
-
 import domain.data.PercolationStatsData;
 
 /**
