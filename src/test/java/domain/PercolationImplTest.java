@@ -142,6 +142,26 @@ public class PercolationImplTest {
     }
 
     @Test
+    public void getCellStateV2() {
+        percolation.openCell(0, 0);
+        percolation.openCell(0, 1);
+        percolation.openCell(1, 1);
+        percolation.openCell(2, 1);
+        percolation.openCell(3, 1);
+        Assertions.assertEquals(FULL, percolation.getCellState(3, 1));
+        Assertions.assertEquals(LOCK, percolation.getCellState(4, 4));
+        percolation.openCell(3, 3);
+        percolation.openCell(4, 3);
+        percolation.openCell(4, 4);
+        Assertions.assertEquals(OPEN, percolation.getCellState(4, 4));
+        Assertions.assertEquals(OPEN, percolation.getCellState(3, 3));
+        percolation.openCell(3, 2);
+        Assertions.assertEquals(FULL, percolation.getCellState(4, 4));
+        Assertions.assertEquals(FULL, percolation.getCellState(4, 3));
+        Assertions.assertEquals(FULL, percolation.getCellState(3, 3));
+    }
+
+    @Test
     public void getCellStateV3() {
         percolation.openCell(0, 0);
         percolation.openCell(0, 1);
