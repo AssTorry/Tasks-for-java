@@ -104,4 +104,8 @@ public class PercolationImpl implements Percolation {
         hasPercolation = false;
         openCells = 0;
     }
+
+    public void setHasPercolation(boolean per){
+        hasPercolation = per;
+    }
 }
