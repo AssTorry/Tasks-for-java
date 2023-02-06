@@ -43,17 +43,6 @@ public class PercolationImpl2 implements Percolation {
         if (y == 0) {
             array[x][y] = FULL;
         }
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (array[j][i] != LOCK) {
-                    break;
-                }
-                if (j == size - 1){
-                    return;
-                }
-            }
-        }
         tryToPercolated();
     }
 

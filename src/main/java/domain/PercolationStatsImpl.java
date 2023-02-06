@@ -13,7 +13,7 @@ public class PercolationStatsImpl implements PercolationStats {
     @Override
     public PercolationStatsData execute(int size, int trials) {
         //TODO реализовать метод выполнения эксперимента
-        PercolationImpl percolation = new PercolationImpl(size);
+        Percolation percolation = new PercolationImpl2(size);
         double[] pvalue = new double[trials];
         double p = 0;
         double pMin = 1;
@@ -22,29 +22,24 @@ public class PercolationStatsImpl implements PercolationStats {
 
         for (int i = 0; i < trials; i++) {
             percolation.closeAllCell();
-            percolation.setHasPercolation(false);
             while (!percolation.hasPercolation()) {
                 int x = random.nextInt(size);
                 int y = random.nextInt(size);
                 percolation.openCell(x, y);
             }
-            pvalue[i] = percolation.getOpenCellsCount() * 1.0 / size / size;
+            pvalue[i] = ((double) percolation.getOpenCellsCount()) / size / size;
         }
 
         for (double v : pvalue) {
-            if (v > pMax) {
-                pMax = v;
-            }
-            if (v < pMin) {
-                pMin = v;
-            }
+            if (v > pMax) pMax = v;
+
+            if (v < pMin) pMin = v;
+
             p += v;
         }
         p = p / pvalue.length;
 
-        PercolationStatsData dat = new PercolationStatsData(size, trials, p, pMin, pMax);
-
-        return dat;
+        return new PercolationStatsData(size, trials, p, pMin, pMax);
     }
 
 }
