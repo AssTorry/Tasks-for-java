@@ -36,6 +36,7 @@ public class PercolationStatsData {
     @Override
     public String toString() {
         //TODO заменить на адекватное представление класса в строку
+        System.out.println("Percolation size " + size + " trials " + trials + "\n" + " resalt p " + p + " pMax " + pMax + " pMin " + pMin);
         return super.toString();
     }
 }

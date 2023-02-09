@@ -2,12 +2,7 @@ package domain;
 
 import domain.data.CellState;
 
-/**
- * Интерфейс решетки
- * <p>
- * Начало координат в левом верхнем углу, OY направленна вниз OX - вправо
- * Левая верхняя ячейка (0;0)
- */
+
 public interface Percolation {
     /**
      * Размер решетки
